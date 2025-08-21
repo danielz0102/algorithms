@@ -16,6 +16,7 @@
 
 # Debugger Files
 *.pdb
+*.dwo
 
 # Compiled Dynamic libraries
 *.so
@@ -37,5 +38,28 @@
 *.out
 *.app
 
-# debug information files
-*.dwo
+# Ignore Visual Studio cache and settings
+.vs/
+
+# Build directories
+[Bb]uild/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Oo]bj/
+[Bb]in/
+
+# Visual Studio project user files
+*.vcxproj.user
+*.vcxproj.filters
+
+# VS Code settings
+.vscode/
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.cmake
