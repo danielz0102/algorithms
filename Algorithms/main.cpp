@@ -1,11 +1,11 @@
 #include <iostream>
 #include <vector>
-#include "insertion-sort.h"
+#include "selection-sort.h"
 using namespace std;
 
-void main()
-{
-	cout << "INSERTION SORT" << endl << endl;
+template <typename Algorithm>
+void example(string title, Algorithm algorithm) {
+	cout << title << endl << endl;
 	vector<int> myArr = { 5, 2, 4, 6, 1, 3 };
 
 	cout << "Before sorting: ";
@@ -14,11 +14,16 @@ void main()
 	}
 	cout << endl;
 
-	insertionSort(myArr);
+	algorithm(myArr);
 
 	cout << "After sorting: ";
 	for (int num : myArr) {
 		cout << num << " ";
 	}
 	cout << endl;
+}
+
+void main()
+{
+	example("SELECTION SORT", selectionSort);
 }

@@ -126,9 +126,11 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="insertion-sort.cpp" />
+    <ClCompile Include="selection-sort.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="insertion-sort.h" />
+    <ClInclude Include="selection-sort.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
