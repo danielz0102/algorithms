@@ -1,21 +1,17 @@
 #include <iostream>
 #include <vector>
-#include "selection-sort.h"
-#include "insertion-sort.h"
+#include "linear-search.h"
 using namespace std;
 
-struct Algorithm {
-	const char* name;
-	void (*function)(vector<int>&);
-};
+void sortingExample(void (*sortFunction)(vector<int>&));
+void searchingExample(int (*searchFunction)(vector<int>&, int));
 
-Algorithm algorithms[] = {
-	{ "INSERTION SORT", insertionSort },
-	{ "SELECTION SORT", selectionSort }
-};
+int main()
+{
+	searchingExample(linearSearch);
+}
 
-void example(Algorithm algorithm) {
-	cout << algorithm.name << endl << endl;
+void sortingExample(void (*sortFunction)(vector<int>&)) {
 	vector<int> myArr = { 5, 2, 4, 6, 1, 3 };
 
 	cout << "Before sorting: ";
@@ -24,7 +20,7 @@ void example(Algorithm algorithm) {
 	}
 	cout << endl;
 
-	algorithm.function(myArr);
+	sortFunction(myArr);
 
 	cout << "After sorting: ";
 	for (int num : myArr) {
@@ -33,38 +29,21 @@ void example(Algorithm algorithm) {
 	cout << endl;
 }
 
-int main()
-{
-    char* algorithmEnv = nullptr;
-    size_t envLen = 0;
-    errno_t err = _dupenv_s(&algorithmEnv, &envLen, "ALGORITHM");
+void searchingExample(int (*searchFunction)(vector<int>&, int)) {
+	vector<int> myArr = { 5, 2, 4, 6, 1, 3 };
+	int target = 4;
 
-    if (err != 0 || algorithmEnv == nullptr) {
-        cerr << "Error: Environment variable 'ALGORITHM' not set." << endl;
-        return 1;
-    }
-
-    if (algorithmEnv != nullptr && envLen > 0) {
-        _strupr_s(algorithmEnv, envLen);
-    }
-
-	Algorithm* selectedAlgorithm = nullptr;
-
-	for (Algorithm& algorithm : algorithms) {
-		if (strcmp(algorithm.name, algorithmEnv) == 0) {
-			selectedAlgorithm = &algorithm;
-			break;
-		}
+	cout << "Array: ";
+	for (int num : myArr) {
+		cout << num << " ";
 	}
+	cout << endl;
 
-	if (selectedAlgorithm == nullptr) {
-		cerr << "Error: Unknown algorithm '" << algorithmEnv << "'" << endl;
-		cerr << "Available algorithms:" << endl;
-		for (Algorithm& algorithm : algorithms) {
-			cerr << " - " << algorithm.name << endl;
-		}
-		return 1;
+	int result = searchFunction(myArr, target);
+
+	if (result != NULL) {
+		cout << "Found " << target << " at index " << result << endl;
+	} else {
+		cout << "Did not find " << target << endl;
 	}
-
-	example(*selectedAlgorithm);
 }
