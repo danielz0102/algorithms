@@ -63,3 +63,5 @@ CMakeCache.txt
 cmake_install.cmake
 Makefile
 *.cmake
+
+/Algorithms/Algorithms.aps
