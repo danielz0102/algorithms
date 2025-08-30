@@ -1,7 +1,8 @@
 #include <vector>
-#include "insertion-sort.h"
 
-void insertionSort(std::vector<int>& arr) {
+export module insertionSort;
+
+export void insertionSort(std::vector<int>& arr) {
 	int n = arr.size();
 
 	for (int i = 1; i < n; i++) {

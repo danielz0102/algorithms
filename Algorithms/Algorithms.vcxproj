@@ -124,15 +124,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="linear-search.cpp" />
+    <ClCompile Include="insertionSort.ixx" />
+    <ClCompile Include="linearSearch.ixx" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="insertion-sort.cpp" />
-    <ClCompile Include="selection-sort.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="insertion-sort.h" />
-    <ClInclude Include="linear-search.h" />
-    <ClInclude Include="selection-sort.h" />
+    <ClCompile Include="selectionSort.ixx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

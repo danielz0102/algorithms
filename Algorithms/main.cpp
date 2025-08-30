@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "linear-search.h"
+import linearSearch;
 using namespace std;
 
 void sortingExample(void (*sortFunction)(vector<int>&));
